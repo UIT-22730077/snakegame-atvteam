@@ -23,16 +23,14 @@ public:
             cout<<"X";
         }
     }
-    void DiChuyen(int Huong, int& temp){
+    void DiChuyen(int Huong){
         for (int i = DoDai-1; i>0;i--)
             A[i] = A[i-1];
-        if(Huong - temp == 2 || Huong - temp == -2)
-                Huong = temp;
         if (Huong==0) A[0].x = A[0].x + 1;
         if (Huong==1) A[0].y = A[0].y + 1;
         if (Huong==2) A[0].x = A[0].x - 1;
         if (Huong==3) A[0].y = A[0].y - 1;
-        temp = Huong;
+
     }
 };
 
@@ -40,7 +38,6 @@ int main()
 {
     CONRAN r;
     int Huong = 0;
-    int Huong_temp = 0;
     char t;
 
     while (1){
@@ -53,7 +50,7 @@ int main()
         }
         system("cls");
         r.Ve();
-        r.DiChuyen(Huong, Huong_temp);
+        r.DiChuyen(Huong);
         Sleep(300);
     }
 
