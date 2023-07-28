@@ -39,10 +39,10 @@ Thử thách khả năng của bạn trong trò chơi Snake và xem liệu bạn
 Hãy tận hưởng trò chơi Snake và xem bạn có thể trở thành người chơi hàng đầu hay không! Hãy thử các chiến thuật và phản xạ của mình để đạt được thành tích cao nhất. Chúc may mắn và chúc bạn có những giờ phút vui vẻ khi chơi trò chơi này!
 
 ## 3. Thành viên tham gia dự án
-| MSSV | Họ và tên | Vị trí |
-| :--------| :---------| :------|
-|22730104| Phan Hữu Vinh | Trưởng nhóm |
-|22730099| Huỳnh Nguyễn Thiên Trúc | Thành viên |
-|22730106| Ngũ Việt An | Thành viên |
+| MSSV   | Họ và tên               | Vị trí      |
+| :------| :-----------------------| :------     |
+|22730104| Phan Hữu Vinh           | Trưởng nhóm |
+|22730099| Huỳnh Nguyễn Thiên Trúc | Thành viên  |
+|22730106| Ngũ Việt An             | Thành viên  |
 ## 4. Tuyên bố
 Đây là đồ án cuối kỳ môn Kỹ năng nghề nghiệp của nhóm ATV-Team thuộc Trung tâm Phát triển Công nghệ Thông tin, Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM. Sản phẩm này được tạo ra phi lợi nhuận với mục đích học tập và thực hành. Chúng tôi xin cam kết tuân thủ quyền tác giả và sử dụng tài nguyên hợp pháp theo đúng quy định và tiêu chuẩn liên quan.
