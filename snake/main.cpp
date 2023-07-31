@@ -2,6 +2,8 @@
 #include <windows.h>
 #include <cstdlib>
 #include <conio.h>
+const int HEIGHT = 20;
+const int WIDTH = 70;
 using namespace std;
 void gotoxy( int column, int line );
 struct Point{
@@ -34,29 +36,55 @@ public:
         if (Huong==3) A[0].y = A[0].y - 1;
         temp = Huong;
     }
+
+    void veKhung()
+    {
+        gotoxy(0, 0);
+        for (int i = 0; i < WIDTH; i++)
+            cout << "#";
+
+        gotoxy(0, HEIGHT);
+        for (int i = 0; i < WIDTH; i++)
+            cout << "#";
+
+        for (int i = 0; i < HEIGHT; i++)
+        {
+            gotoxy(0, i);
+            cout << "#";
+        }
+
+        for (int i = 0; i < HEIGHT; i++)
+        {
+            gotoxy(WIDTH-1, i);
+            cout << "#";
+        }
+    }
 };
 
 int main()
 {
     CONRAN r;
     int Huong = 0;
-
     int Huong_temp = 0;
     char t;
 
     while (1){
         if (kbhit()){
             t = getch();
-            if (t=='a') Huong = 2;
-            if (t=='w') Huong = 3;
-            if (t=='d') Huong = 0;
-            if (t=='x') Huong = 1;
+            t = tolower(t);
+            if(t=='a') Huong = 2;
+            if(t=='w') Huong = 3;
+            if(t=='d') Huong = 0;
+            if(t=='s') Huong = 1;
+            if(t == 'q') break;
         }
         system("cls");
+        r.veKhung();
         r.Ve();
         r.DiChuyen(Huong, Huong_temp);
         Sleep(300);
     }
+
     return 0;
 }
 
