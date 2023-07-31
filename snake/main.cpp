@@ -37,28 +37,20 @@ public:
         temp = Huong;
     }
 
-    void veKhung()
-    {
-        gotoxy(0, 0);
-        for (int i = 0; i < WIDTH; i++)
-            cout << "#";
-
-        gotoxy(0, HEIGHT);
-        for (int i = 0; i < WIDTH; i++)
-            cout << "#";
-
-        for (int i = 0; i < HEIGHT; i++)
-        {
-            gotoxy(0, i);
-            cout << "#";
-        }
-
-        for (int i = 0; i < HEIGHT; i++)
-        {
-            gotoxy(WIDTH-1, i);
-            cout << "#";
-        }
+    void VeKhung() {
+    for (int i = 0; i < WIDTH; i++) {
+        gotoxy(i, 0);
+        cout << "#";
+        gotoxy(i, HEIGHT - 1);
+        cout << "#";
     }
+    for (int i = 1; i < HEIGHT - 1; i++) {
+        gotoxy(0, i);
+        cout << "#";
+        gotoxy(WIDTH - 1, i);
+        cout << "#";
+    }
+}
 };
 
 int main()
@@ -79,7 +71,7 @@ int main()
             if(t == 'q') break;
         }
         system("cls");
-        r.veKhung();
+        r.VeKhung();
         r.Ve();
         r.DiChuyen(Huong, Huong_temp);
         Sleep(300);
