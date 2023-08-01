@@ -2,6 +2,11 @@
 #include <windows.h>
 #include <cstdlib>
 #include <conio.h>
+<<<<<<< Updated upstream
+=======
+#include <time.h>;
+
+>>>>>>> Stashed changes
 using namespace std;
 void gotoxy( int column, int line );
 struct Point{
@@ -10,7 +15,12 @@ struct Point{
 class CONRAN{
 public:
     struct Point A[100];
+<<<<<<< Updated upstream
     int DoDai;
+=======
+    struct Point moi;
+    int doDai;
+>>>>>>> Stashed changes
     CONRAN(){
         DoDai = 3;
         A[0].x = 10; A[0].y = 10;
@@ -34,6 +44,26 @@ public:
         if (Huong==3) A[0].y = A[0].y - 1;
         temp = Huong;
     }
+
+    bool kiemTraMoi(){
+        for(int i = 0; i < doDai; i++)
+            if(A[i].x == moi.x && A[i].y == moi.y)
+                return true;
+        return false;
+    }
+
+    void taoMoi(){
+        srand(time(0));
+        do{
+            moi.x = rand() % (WIDTH - 2) + 1;
+            moi.y = rand() % (HEIGHT - 2) + 1;
+        }while(kiemTraMoi());
+    }
+
+    void veMoi(){
+    gotoxy(moi.x, moi.y);
+    cout << "O";
+    }
 };
 
 int main()
@@ -42,9 +72,17 @@ int main()
     int Huong = 0;
     int Huong_temp = 0;
     char t;
+<<<<<<< Updated upstream
 
     while (1){
         if (kbhit()){
+=======
+    r.veKhung();
+    r.veConRan();
+    r.taoMoi();
+    while(1){
+        if(kbhit()){
+>>>>>>> Stashed changes
             t = getch();
             t = tolower(t);
             if(t=='a') Huong = 2;
@@ -53,9 +91,16 @@ int main()
             if(t=='s') Huong = 1;
             if(t == 'q') break;
         }
+<<<<<<< Updated upstream
         system("cls");
         r.Ve();
         r.DiChuyen(Huong);
+=======
+        r.xoaDuoi();
+        r.diChuyen(huong, prevHuong);
+        r.veConRan();
+        r.veMoi();
+>>>>>>> Stashed changes
         Sleep(300);
     }
     return 0;
