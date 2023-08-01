@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <cstdlib>
 #include <conio.h>
+#include <time.h>;
 
 using namespace std;
 
@@ -15,6 +16,7 @@ struct Point{
 class CONRAN{
 public:
     struct Point A[100];
+    struct Point moi;
     int doDai;
     CONRAN(){
         doDai = 3;
@@ -65,6 +67,26 @@ public:
         gotoxy(A[doDai-1].x, A[doDai-1].y);
         cout << " ";
     }
+
+    bool kiemTraMoi(){
+        for(int i = 0; i < doDai; i++)
+            if(A[i].x == moi.x && A[i].y == moi.y)
+                return true;
+        return false;
+    }
+
+    void taoMoi(){
+        srand(time(0));
+        do{
+            moi.x = rand() % (WIDTH - 2) + 1;
+            moi.y = rand() % (HEIGHT - 2) + 1;
+        }while(kiemTraMoi());
+    }
+
+    void veMoi(){
+    gotoxy(moi.x, moi.y);
+    cout << "O";
+    }
 };
 
 int main()
@@ -75,6 +97,7 @@ int main()
     char t;
     r.veKhung();
     r.veConRan();
+    r.taoMoi();
     while(1){
         if(kbhit()){
             t = getch();
@@ -88,6 +111,7 @@ int main()
         r.xoaDuoi();
         r.diChuyen(huong, prevHuong);
         r.veConRan();
+        r.veMoi();
         Sleep(300);
     }
     return 0;
