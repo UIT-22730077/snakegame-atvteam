@@ -87,6 +87,14 @@ public:
     gotoxy(moi.x, moi.y);
     cout << "O";
     }
+
+    void anMoi(){
+        if(A[0].x == moi.x && A[0].y == moi.y){
+            doDai++;
+            taoMoi();
+        }
+    }
+
 };
 
 int main()
@@ -112,6 +120,7 @@ int main()
         r.diChuyen(huong, prevHuong);
         r.veConRan();
         r.veMoi();
+        r.anMoi();
         Sleep(300);
     }
     return 0;
