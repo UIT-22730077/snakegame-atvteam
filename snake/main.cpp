@@ -40,8 +40,10 @@ public:
     }
 
     void xoaDuoi(){
+        if (A[doDai-1].x > 0 && A[doDai-1].x < WIDTH-1 && A[doDai-1].y > 0 && A[doDai-1].y < HEIGHT - 1){
             gotoxy(A[doDai-1].x, A[doDai-1].y);
             cout << " ";
+        }
     }
 
     void diChuyen(int huong, int& temp){
@@ -129,6 +131,7 @@ public:
             cout << "#";
         }
     }
+
     void veKhungDiem(){
         for(int i = 0; i < WIDTH; i++){
             gotoxy(i, HEIGHT);
@@ -136,7 +139,9 @@ public:
             gotoxy(i, HEIGHT+4);
             cout << "=";
         }
+        gotoxy(WIDTH-9, HEIGHT+5);
     }
+
     void xuatDiem(){
         gotoxy(2, HEIGHT+1);
         cout << "POINT: " << diem << "    LEVEL: " << doKho << "" << endl;
@@ -152,6 +157,7 @@ public:
         cout << "P - PAUSE";
         gotoxy(WIDTH+2, 7);
         cout << "Q - QUIT";
+
     }
 
     void tamDung(){
@@ -160,6 +166,7 @@ public:
         gotoxy(37, HEIGHT+3);
         cout << "PRESS Q TO QUIT";
     }
+
     void tiepTuc(){
         for(int i = 0; i < WIDTH; i++){
             gotoxy(i, HEIGHT+2);
@@ -168,11 +175,13 @@ public:
             cout << " ";
         }
     }
+
     void thoat(){
         gotoxy(32, HEIGHT+2);
         cout << "YOU LOSE!" << endl;
         gotoxy(0, HEIGHT+5);
     }
+
     void chucMung(){
         gotoxy(32, HEIGHT+2);
         cout << "YOU WIN!" << endl;
