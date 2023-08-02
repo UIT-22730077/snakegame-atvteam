@@ -7,7 +7,7 @@
 using namespace std;
 
 const int HEIGHT = 20;
-const int WIDTH = 70;
+const int WIDTH = 71;
 int diem = 0;
 int doKho = 0;
 void gotoxy(int column, int line);
@@ -52,26 +52,27 @@ public:
             A[i] = A[i-1];
         if(huong - temp == 2 || huong - temp == -2)
             huong = temp;
-        if(huong==0) A[0].x = A[0].x + 1;
+        if(huong==0) A[0].x = A[0].x + 2;
         if(huong==1) A[0].y = A[0].y + 1;
-        if(huong==2) A[0].x = A[0].x - 1;
+        if(huong==2) A[0].x = A[0].x - 2;
         if(huong==3) A[0].y = A[0].y - 1;
         temp = huong;
         veConRan();
-        kiemTraThua();
     }
 
     bool kiemTraMoi(){
         for(int i = 0; i < doDai; i++)
             if(A[i].x == moi.x && A[i].y == moi.y)
                 return true;
+        if(moi.x == 0)
+            return true;
         return false;
     }
 
     void taoMoi(){
         srand(time(0));
         do{
-            moi.x = rand() % (WIDTH - 2) + 1;
+            moi.x = (rand() % ((WIDTH - 1) / 2)) * 2 ;
             moi.y = rand() % (HEIGHT - 2) + 1;
         }while(kiemTraMoi());
     }
@@ -89,14 +90,11 @@ public:
             taoMoi();
         }
 
-    }
-
     void tangDoKho(){
-        if(diem > 0 && diem%5 == 0){
+        if(diem > 0 && diem%5 == 0 && doKho < 10){
             doKho++;
-            sleep -= 40;
+            sleep -= 20;
         }
-
     }
 
     bool kiemTraThua(){
@@ -104,6 +102,8 @@ public:
             return true;
         for(int i = 1; i < doDai-1; i++)
             if(A[0].x == A[i].x && A[0].y == A[i].y)
+            return true;
+        if(doDai == (WIDTH-2)*(HEIGHT-2))
             return true;
         return false;
     }
@@ -180,12 +180,14 @@ public:
     void thoat(){
         gotoxy(32, HEIGHT+2);
         cout << "YOU LOSE!" << endl;
+        Sleep(1000);
         gotoxy(0, HEIGHT+5);
     }
 
     void chucMung(){
         gotoxy(32, HEIGHT+2);
         cout << "YOU WIN!" << endl;
+        Sleep(1000);
         gotoxy(0, HEIGHT+5);
     }
 };
@@ -204,11 +206,11 @@ int main(){
         if(kbhit()){
             t = getch();
             t = tolower(t);
-            if(t=='a') huong = 2;
-            if(t=='w') huong = 3;
-            if(t=='d') huong = 0;
-            if(t=='s') huong = 1;
-            if(t=='p'){
+            if(t == 'a') huong = 2;
+            if(t == 'w') huong = 3;
+            if(t == 'd') huong = 0;
+            if(t == 's') huong = 1;
+            if(t == 'p'){
                 h.tamDung();
                 t = getch();
                 h.tiepTuc();
@@ -226,15 +228,17 @@ int main(){
         r.veMoi();
         r.anMoi();
         h.xuatDiem();
-        Sleep(r.sleep);
+        r.kiemTraThua();
         if(r.kiemTraThua() == true){
             h.thoat();
             break;
         }
+        r.kiemtraThang();
         if(r.kiemtraThang() == true){
             h.chucMung();
             break;
         }
+        Sleep(r.sleep);
     }
     return 0;
 }
