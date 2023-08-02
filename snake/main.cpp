@@ -90,6 +90,8 @@ public:
             taoMoi();
         }
 
+    }
+
     void tangDoKho(){
         if(diem > 0 && diem%5 == 0 && doKho < 10){
             doKho++;
