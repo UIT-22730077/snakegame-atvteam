@@ -140,6 +140,7 @@ public:
             cout << "=";
         }
         gotoxy(WIDTH-9, HEIGHT+5);
+        cout << "@ATV-Team";
     }
 
     void xuatDiem(){
