@@ -90,8 +90,6 @@ public:
             taoMoi();
         }
 
-    }
-
     void tangDoKho(){
         if(diem > 0 && diem%5 == 0 && doKho < 10){
             doKho++;
@@ -189,7 +187,7 @@ public:
     void chucMung(){
         gotoxy(32, HEIGHT+2);
         cout << "YOU WIN!" << endl;
-
+        Sleep(1000);
         gotoxy(0, HEIGHT+5);
     }
 };
