@@ -56,7 +56,7 @@ public:
         if(huong==3) A[0].y = A[0].y - 1;
         temp = huong;
         veConRan();
-        kiemTraKetThuc();
+        kiemTraThua();
     }
 
     bool kiemTraMoi(){
@@ -97,7 +97,7 @@ public:
 
     }
 
-    bool kiemTraKetThuc(){
+    bool kiemTraThua(){
         if(A[0].x == 0 || A[0].x == WIDTH-1 || A[0].y == 0 || A[0].y == HEIGHT-1)
             return true;
         for(int i = 1; i < doDai-1; i++)
@@ -105,11 +105,17 @@ public:
             return true;
         return false;
     }
+
+    bool kiemtraThang(){
+        if(doDai == (WIDTH-2)*(HEIGHT-2))
+            return true;
+        return false;
+    }
 };
 
 class HIENTHI: public CONRAN{
 public:
-    void veKhung(){
+    void veKhungTroChoi(){
         for(int i = 0; i < WIDTH; i++){
             gotoxy(i, 0);
             cout << "#";
@@ -123,9 +129,54 @@ public:
             cout << "#";
         }
     }
+    void veKhungDiem(){
+        for(int i = 0; i < WIDTH; i++){
+            gotoxy(i, HEIGHT);
+            cout << "=";
+            gotoxy(i, HEIGHT+4);
+            cout << "=";
+        }
+    }
     void xuatDiem(){
-        gotoxy(0, HEIGHT);
-        cout << "DIEM SO: " << diem << "    DO KHO: " << doKho;
+        gotoxy(2, HEIGHT+1);
+        cout << "POINT: " << diem << "    LEVEL: " << doKho << "" << endl;
+        gotoxy(WIDTH+2, 1);
+        cout << "W - UP";
+        gotoxy(WIDTH+2, 2);
+        cout << "S - DOWN";
+        gotoxy(WIDTH+2, 3);
+        cout << "A - LEFT";
+        gotoxy(WIDTH+2, 4);
+        cout << "D - RIGHT";
+        gotoxy(WIDTH+2, 6);
+        cout << "P - PAUSE";
+        gotoxy(WIDTH+2, 7);
+        cout << "Q - QUIT";
+    }
+
+    void tamDung(){
+        gotoxy(25, HEIGHT+2);
+        cout << "GAME PAUSE, PRESS ANY KEY TO RESUME" << endl;
+        gotoxy(37, HEIGHT+3);
+        cout << "PRESS Q TO QUIT";
+    }
+    void tiepTuc(){
+        for(int i = 0; i < WIDTH; i++){
+            gotoxy(i, HEIGHT+2);
+            cout << " ";
+            gotoxy(i, HEIGHT+3);
+            cout << " ";
+        }
+    }
+    void thoat(){
+        gotoxy(32, HEIGHT+2);
+        cout << "YOU LOSE!" << endl;
+        gotoxy(0, HEIGHT+5);
+    }
+    void chucMung(){
+        gotoxy(32, HEIGHT+2);
+        cout << "YOU WIN!" << endl;
+        gotoxy(0, HEIGHT+5);
     }
 };
 
@@ -135,10 +186,11 @@ int main(){
     int huong = 0;
     int prevHuong = 0;
     char t;
-    h.veKhung();
+    h.veKhungTroChoi();
+    h.veKhungDiem();
     r.veConRan();
     r.taoMoi();
-    while(!r.kiemTraKetThuc()){
+    while(true){
         if(kbhit()){
             t = getch();
             t = tolower(t);
@@ -146,13 +198,33 @@ int main(){
             if(t=='w') huong = 3;
             if(t=='d') huong = 0;
             if(t=='s') huong = 1;
-            if(t == 'q') break;
+            if(t=='p'){
+                h.tamDung();
+                t = getch();
+                h.tiepTuc();
+                if(t == 'q'){
+                    h.thoat();
+                    break;
+                }
+            };
+            if(t == 'q'){
+                h.thoat();
+                break;
+            }
         }
         r.diChuyen(huong, prevHuong);
         r.veMoi();
         r.anMoi();
         h.xuatDiem();
         Sleep(r.sleep);
+        if(r.kiemTraThua() == true){
+            h.thoat();
+            break;
+        }
+        if(r.kiemtraThang() == true){
+            h.chucMung();
+            break;
+        }
     }
     return 0;
 }
