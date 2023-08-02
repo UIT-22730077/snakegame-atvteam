@@ -30,10 +30,12 @@ Thử thách khả năng của bạn trong trò chơi Rắn săn mồi - Snake v
 ### Điểm số:
 
 - Điểm số của bạn sẽ được hiển thị trên màn hình trong suốt quá trình chơi.
+- Mỗi 05 điểm sẽ tăng thêm 01 level và tối đa là 10. Level càng tăng thì tốc độ con rắn càng cao.
 - Cố gắng đạt điểm số cao nhất bằng cách ăn nhiều mồi nhất có thể.
 ### Kết thúc trò chơi:
 
 - Nếu con rắn va chạm vào bức tường hoặc vào chính cơ thể của nó, trò chơi sẽ kết thúc.
+- Bạn có thể tạm dừng trò chơi bằng phím P và nhấn phím bất kỳ để tiếp tục.
 - Bạn có thể thoát trò chơi ngay lập tức bằng phím Q.
   
 Hãy tận hưởng trò chơi và xem bạn có thể trở thành người chơi hàng đầu hay không! Hãy thử các chiến thuật và phản xạ của mình để đạt được thành tích cao nhất. Chúc may mắn và chúc bạn có những giờ phút vui vẻ khi chơi trò chơi này!
