@@ -12,10 +12,12 @@ Thử thách khả năng của bạn trong trò chơi Rắn săn mồi - Snake v
 ## 2. Hướng dẫn
 ### Khởi động trò chơi:
 
+- Để chạy trò chơi con rắn, bạn cần có môi trường phát triển C++ hỗ trợ thư viện windows.h và hệ điều hành Windows.
 - Mở trò chơi bằng cách chạy chương trình trên IDE của bạn.
 - Trên màn hình console sẽ hiển thị một con rắn và một mồi được đặt ngẫu nhiên.
 ### Điều khiển con rắn:
 
+- Để chơi trò chơi, vui lòng tắt bộ gõ Tiếng Việt của bạn.
 - Sử dụng các phím W, A, S, D để điều khiển con rắn di chuyển.
 - Hãy nhớ rằng con rắn chỉ có thể di chuyển theo một hướng trong mỗi lần di chuyển, không thể quay đầu ngay lập tức hoặc đi ngược lại.
 ### Mục tiêu:
