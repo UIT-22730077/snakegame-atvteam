@@ -141,13 +141,6 @@ public:
             gotoxy(i, HEIGHT+4);
             cout << "=";
         }
-        gotoxy(WIDTH-9, HEIGHT+5);
-        cout << "@ATV-Team";
-    }
-
-    void xuatDiem(){
-        gotoxy(2, HEIGHT+1);
-        cout << "POINT: " << diem << "    LEVEL: " << doKho << "" << endl;
         gotoxy(WIDTH+2, 1);
         cout << "W - UP";
         gotoxy(WIDTH+2, 2);
@@ -160,7 +153,13 @@ public:
         cout << "P - PAUSE";
         gotoxy(WIDTH+2, 7);
         cout << "Q - QUIT";
+        gotoxy(WIDTH-9, HEIGHT+5);
+        cout << "@ATV-Team";
+    }
 
+    void xuatDiem(){
+        gotoxy(2, HEIGHT+1);
+        cout << "POINT: " << diem << "    LEVEL: " << doKho << "" << endl;
     }
 
     void tamDung(){
