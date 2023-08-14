@@ -27,8 +27,9 @@ Thử thách khả năng của bạn trong trò chơi Rắn săn mồi - Snake v
 - Cố gắng ăn càng nhiều mồi càng tốt để thu thập điểm số cao.
 ### Rủi ro:
 
-- Tránh va chạm vào bức tường hoặc vào thân của con rắn, vì nếu xảy ra va chạm, trò chơi sẽ kết thúc.
+- Tránh va chạm vào thân của con rắn, vì nếu xảy ra va chạm, trò chơi sẽ kết thúc.
 - Hãy cẩn thận khi di chuyển quanh khu vực chơi bị giới hạn và đảm bảo con rắn không gặp phải các vật cản.
+- Hãy tránh xa các góc bức tường để tránh va chạm vào tường , trò chơi sẽ kết thúc nếu bạn chạm vào chúng. 
 ### Điểm số:
 
 - Điểm số của bạn sẽ được hiển thị trên màn hình trong suốt quá trình chơi.
